@@ -17,8 +17,8 @@ folders.forEach(folder => {
     files.forEach(file => {
         let [name, ext] = file.split(".");
         if (ext !== "sfb") return
-        let item = itemList.find(item => item.toLowerCase() === name.toLowerCase());
-        if (!item) return;
+        let item = itemList.find(item => item.toLowerCase() === name.toLowerCase())
+        if (!item || name.includes("RAINBOW")) return;
         let filePath = path.resolve(PATH, folder, file);
         fs.unlinkSync(filePath);
         console.log(`Deleted ${filePath}`);
